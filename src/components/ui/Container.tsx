@@ -1,0 +1,11 @@
+import { ReactNode } from "react";
+
+export default function Container({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return <div className={`relative z-10 max-w-[1200px] mx-auto px-6 ${className}`}>{children}</div>;
+}

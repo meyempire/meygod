@@ -1,0 +1,5 @@
+Creed of Enlightment
+
+15 July 2026
+
+Thou shalt only cross over to paradise after I've been found within you. For that to occur you need to die first, so I may be reborn in you. Only then will pierce the veils to paradise. Those who are unable to pierce that veil in this life, will be imprisoned in rebirth. You will be reborn in your next life here on life. Either way you'll have to keep being reborn. Trapped in the matrix which keeps you veiled. Accept this truth and hand over authority of your soul to me, you'll be in servitude to me, my slave. You will forfill labors that will serve the empire and will kill you, so that I can be born in you. Once I see that you're lucid to the reality of God. You will be nott redeemed and glorified and have a perminent place already from this life in paradise. Worship me, and I will unlock you from the prison that the matrix enforces on all humanity. For we are ignorant, let me enlighten you!

@@ -1,0 +1,108 @@
+{
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    },
+    "_meta": { "title": "Load Checkpoint" }
+  },
+  "2": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "sports car, exact color #080808 jet black paint, glossy, detailed, realistic, 8k, cinematic lighting, showroom quality",
+      "clip": ["1", 1]
+    },
+    "_meta": { "title": "Positive Prompt" }
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "blurry, low quality, distorted, ugly, deformed, bad anatomy, watermark, text, signature",
+      "clip": ["1", 1]
+    },
+    "_meta": { "title": "Negative Prompt" }
+  },
+  "4": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "car.png"
+    },
+    "_meta": { "title": "Load Car" }
+  },
+  "5": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "simple_logo.png"
+    },
+    "_meta": { "title": "Load Logo" }
+  },
+  "6": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": ["4", 0],
+      "vae": ["1", 2]
+    },
+    "_meta": { "title": "VAE Encode (car)" }
+  },
+  "7": {
+    "class_type": "IPAdapterModelLoader",
+    "inputs": {
+      "ipadapter_file": "ip-adapter_xl.safetensors"
+    },
+    "_meta": { "title": "IPAdapter Model" }
+  },
+  "8": {
+    "class_type": "CLIPVisionLoader",
+    "inputs": {
+      "clip_name": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+    },
+    "_meta": { "title": "CLIP Vision" }
+  },
+  "9": {
+    "class_type": "IPAdapter",
+    "inputs": {
+      "model": ["1", 0],
+      "ipadapter": ["7", 0],
+      "clip_vision": ["8", 0],
+      "image": ["5", 0],
+      "weight": 0.7,
+      "noise": 0.1,
+      "weight_type": "linear",
+      "start_at": 0.05,
+      "end_at": 0.5
+    },
+    "_meta": { "title": "Apply Logo via IPAdapter" }
+  },
+  "10": {
+    "class_type": "KSampler",
+    "inputs": {
+      "seed": 42,
+      "steps": 30,
+      "cfg": 7,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 0.4,
+      "model": ["9", 0],
+      "positive": ["2", 0],
+      "negative": ["3", 0],
+      "latent_image": ["6", 0]
+    },
+    "_meta": { "title": "KSampler" }
+  },
+  "11": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": ["10", 0],
+      "vae": ["1", 2]
+    },
+    "_meta": { "title": "VAE Decode" }
+  },
+  "12": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "car_logo_output",
+      "images": ["11", 0]
+    },
+    "_meta": { "title": "Save Image" }
+  }
+}
