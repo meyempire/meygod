@@ -44,5 +44,8 @@
       "sharp",
       "unrs-resolver"
     ]
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

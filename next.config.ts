@@ -16,6 +16,9 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: false,
   },
+  turbopack: {
+    build: false,
+  },
 };
 
 export default nextConfig;
