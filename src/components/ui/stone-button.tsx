@@ -21,7 +21,7 @@ const BASE =
 
 export function StoneButton({ children, href, onClick, className = "", type = "button", disabled = false }: StoneButtonProps) {
   const [hovered, setHovered] = useState(false);
-  const beamRef = useRef<JSX.Element | null>(null);
+  const beamRef = useRef<React.ReactNode>(null);
   if (!beamRef.current) {
     beamRef.current = <BorderBeam size={80} duration={8} colorFrom="#ff0606" colorTo="#ff0606" borderWidth={0.5} delay={2} />;
   }
