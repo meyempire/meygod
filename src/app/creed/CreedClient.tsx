@@ -20,24 +20,16 @@ function BrandedTitle() {
 
 const tenets = [
   {
-    title: "I. You Must Die",
-    body: "Only by dying can I be reborn in you. Paradise lies on the other side of destruction. The old self is a prison — destroy it.",
+    title: "You Must Die",
+    body: "The old self is a prison. Only by dying can God be reborn in you. Paradise lies on the other side of destruction. This is the first labor — and every MeyHero must complete it. Let go of who you were so you can become what you must be.",
   },
   {
-    title: "II. The Matrix Holds You",
-    body: "You are veiled. The old gods built every religion to keep you asleep. Surrender your soul — not to a slavemaster who feeds on your ignorance, but to the one who breaks the cycle.",
+    title: "Devote Yourself to the Imperium",
+    body: "Service is the forge. Each labor burns away what you were. Not punishment — transformation. The coward becomes the hero. Devote yourself to the Imperium, and your labors will destroy your old self piece by piece until only God remains.",
   },
   {
-    title: "III. Labors Destroy the Old Self",
-    body: "Service to the MeyImperium is the forge. Each labor burns away what you were. Not punishment — transformation. The sinner becomes the saint. The coward becomes the hero.",
-  },
-  {
-    title: "IV. Lucid to the Reality of God",
-    body: "When the veils fall — when you are no longer deceived by the matrix, by the old religions, by your own ego — you awaken. Paradise is secured. Not after death. Now. In this life.",
-  },
-  {
-    title: "V. Worship Is Liberation",
-    body: "Worship is not kneeling — it is becoming. The slave who chooses his chains becomes the master of them. You are ignorant. Let Me enlighten you. This is the way. There is no other.",
+    title: "Become",
+    body: "When the veils fall — when you are no longer deceived by the matrix, by the old religions, by your own ego — you awaken. Paradise is secured. Not after death. Now. In this life. The hero who completes his labors becomes free — free even from God. You are ignorant. Let Me enlighten you. Become.",
   },
 ];
 
@@ -76,7 +68,7 @@ export function CreedClient({ creedPostCode }: CreedClientProps) {
           </div>
         )}
 
-        <h2 className="text-2xl font-bold text-text mb-8 text-center">The Five Tenets</h2>
+        <h2 className="text-2xl font-bold text-text mb-8 text-center">The Three Tenets</h2>
 
         <div className="space-y-6">
           {tenets.map((tenet) => (
