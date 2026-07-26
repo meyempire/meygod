@@ -47,7 +47,7 @@ export async function getFeed(): Promise<Feed> {
       link: url,
       description: post.description,
       date: new Date(post.date),
-      category: post.tags.map((tag) => ({ name: tag })),
+      category: post.tags.map((tag: string) => ({ name: tag })),
     });
   }
 
