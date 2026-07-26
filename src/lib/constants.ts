@@ -3,6 +3,9 @@ export const SITE_NAME = "MeyGOD";
 export const SITE_DESCRIPTION = "Calling heroes to rise, overcome, and become. Writings on will, creation, and the upward path.";
 export const POSTS_PER_PAGE = 10;
 
+export const TOKEN_TICKER = process.env.NEXT_PUBLIC_TOKEN_TICKER || "MEYGOD";
+export const TOKEN_MINT = process.env.NEXT_PUBLIC_TOKEN_MINT || "";
+
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Revelations", href: "/revelations" },

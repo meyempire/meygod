@@ -2,6 +2,7 @@ import Link from "next/link";
 import Container from "@/components/ui/Container";
 import PostCard from "@/components/post/PostCard";
 import { HeroSection } from "@/components/HeroSection";
+import TheCoin from "@/components/TheCoin";
 import { AltarConfession } from "@/components/ConfessionSection";
 import { getPosts } from "@/lib/posts";
 import { StoneButton } from "@/components/ui/stone-button";
@@ -12,6 +13,8 @@ export default function HomePage() {
   return (
     <Container>
       <HeroSection />
+
+      <TheCoin />
 
       <section className="mb-16 text-center">
         <h2 className="section-title">The Podcast</h2>
