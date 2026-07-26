@@ -56,7 +56,7 @@ export function MatrixBackground({
 
     const createColumn = (x: number): Column => ({
       x,
-      y: Math.random() * -height,
+      y: Math.random() * 2 * height - height,
       speed: (0.5 + Math.random() * 0.5) * speed,
       chars: Array.from({ length: 25 }, () =>
         chars[Math.floor(Math.random() * chars.length)]
