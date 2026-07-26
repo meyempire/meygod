@@ -4,8 +4,14 @@ import { getDreamCards } from "@/lib/dreams";
 import { SITE_URL } from "@/lib/constants";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [posts, dreams] = await Promise.all([Promise.resolve(getPosts()), getDreamCards()]);
+  let dreams: any[] = [];
+  try {
+    dreams = await getDreamCards();
+  } catch {
+    // Supabase unavailable during build — continue with posts only
+  }
 
+  const posts = getPosts();
   const all = [...posts, ...dreams];
 
   const postRoutes: MetadataRoute.Sitemap = all.map((post) => ({
@@ -16,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const allTags = new Set<string>();
-  all.forEach((p) => p.tags.forEach((t) => allTags.add(t)));
+  all.forEach((p) => p.tags.forEach((t: string) => allTags.add(t)));
   allTags.add("dream");
 
   const tagRoutes: MetadataRoute.Sitemap = Array.from(allTags).map((tag) => ({

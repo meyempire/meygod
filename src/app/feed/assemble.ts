@@ -27,7 +27,13 @@ export async function getFeed(): Promise<Feed> {
     },
   });
 
-  const [posts, dreams] = await Promise.all([Promise.resolve(getPosts()), getDreamCards()]);
+  let dreams: any[] = [];
+  try {
+    dreams = await getDreamCards();
+  } catch {
+    // Supabase unavailable during build
+  }
+  const posts = getPosts();
 
   const allPosts = [...posts, ...dreams]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

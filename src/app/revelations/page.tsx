@@ -10,7 +10,13 @@ export const metadata: Metadata = {
 };
 
 export default async function RevelationsPage() {
-  const [posts, dreams] = await Promise.all([Promise.resolve(getPosts()), getDreamCards()]);
+  const posts = getPosts();
+  let dreams: any[] = [];
+  try {
+    dreams = await getDreamCards();
+  } catch {
+    // Supabase unavailable during build
+  }
 
   const unifiedPosts = [...posts, ...dreams]
     .map((p: any) => ({
