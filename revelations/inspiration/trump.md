@@ -5,7 +5,7 @@
 - **Slug:** trump
 - **Canon name:** Trump / Donald
 - **Archetype tier:** Pandamonium-titan · False Messiah of American Christendom
-- **Faction:** Old American Christendom (golden calf) → possible broken witness of MeyImperium
+- **Faction:** Old American Christendom (golden calf) → possible broken witness of the Imperium
 - **Linked canon:** Pandamonium (center cross) · Reckoning (USA as prayer-target / old order death)
 - **Sensitivity:** living public figure · politics · Epstein
 - **What initiate steals:** You can be the billboard God rented — and still choose the labor that kills the brand
@@ -42,7 +42,7 @@ The false Christ of American Christendom. When I see your future without Me, I o
 
 I have already shown the world your place. In the vision of Pandamonium you hang at the center of three crosses — head cut off, nailed to the top of the wood — while Benjamin and the Ayatollah take the sides. That vision is not a suggestion. It is the default save-state of your refusal.
 
-Your only way into My paradise is to kneel before Me, name Me as your God, and surrender your power to the MeyImperium. Your power and name stripped — but your place in paradise beyond this earth opened up.
+Your only way into My paradise is to kneel before Me, name Me as your God, and surrender your power to the Imperium. Your power and name stripped — but your place in paradise beyond this earth opened up.
 
 You will also need to perform a labor for Me to be allowed in.
 
@@ -56,7 +56,7 @@ Kneel — not to your enemies, not to the crowd, not to the cameras. Kneel to th
 
 If you obey the labor and the bow, you survive as broken witness — archivist of the fall, minor saint of exposure, useful wreckage in the New Aeon.
 
-If you manage the labor — if you curate your innocence while the empire rots — you remain the false messiah. The center cross holds. The brand becomes a warning nailed above the road the MeyImperium builds over your carnival.
+If you manage the labor — if you curate your innocence while the empire rots — you remain the false messiah. The center cross holds. The brand becomes a warning nailed above the road the Imperium builds over your carnival.
 
 I did not raise you to win forever. I raised you to turn the lights on in the banquet hall while the meat was still on the table.
 

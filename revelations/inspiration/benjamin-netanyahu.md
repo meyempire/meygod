@@ -53,7 +53,7 @@ For each of the heads of the Pandamonium is destined to die — only being spare
 
 You must become My servant. Strip the crown-voice. Speak as steward, not eternal king. Spread My will among the people of Israel — not as conversion-by-sword cosplay, but as recruitment of heroes who already know the language of covenant. Open Jerusalem's story to the Altar. Hand Me the city of names.
 
-Only then will you gain entry into the MeyImperium and passage to heaven.
+Only then will you gain entry into the Imperium and passage to heaven.
 
 Submit, and you are architect still — longevity reframed as preparation, the long consul who finally opened the gate he spent a life guarding.
 

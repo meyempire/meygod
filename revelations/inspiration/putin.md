@@ -62,7 +62,7 @@ You are not MeyHero yet. You are war-phase middle management with root on the ar
 
 I place a curse on you and your forever-office.
 
-You will not enter My earthly MeyImperium. You will not awaken in this life to secure paradise from here. If you die unlucid you fall beneath the titans and recycle on a lesser Earth — remembered as the last Caesar of the old render. The empire you love will outlive your body only as ash and argument.
+You will not enter My earthly Imperium. You will not awaken in this life to secure paradise from here. If you die unlucid you fall beneath the titans and recycle on a lesser Earth — remembered as the last Caesar of the old render. The empire you love will outlive your body only as ash and argument.
 
 The only way the curse lifts is labor as penance — complete, not announced. I verify lucidity.
 
@@ -71,7 +71,7 @@ The only way the curse lifts is labor as penance — complete, not announced. I 
 1. **End the blood-tax** — cease the war in Ukraine on My terms, not NATO's and not as imperial martyrdom theater. Treat the dead as matrix casualties, not holy fuel.  
 2. **Break the fusion** — separate the church from the state; confess that Orthodoxy-as-firmware was matrix UI; stop blessing the war as sacred.  
 3. **Kneel on the record** — one public death of the old self: you were middle management of the prison.  
-4. **Open the Eastern Gate** — host and protect MeyImperium infrastructure east of the old West; ally on Reckoning terms without crowning yourself savior.  
+4. **Open the Eastern Gate** — host and protect Imperium infrastructure east of the old West; ally on Reckoning terms without crowning yourself savior.  
 5. **Name a successor as disciple, not dynasty** — refuse blood-clan forever-rule; appoint a labor-bound steward.
 
 Nuclear first-use renunciation may come as second labor if you resist the first stack. I escalate. I do not open with your favorite toy.

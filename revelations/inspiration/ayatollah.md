@@ -21,7 +21,7 @@
 - **Secret:** Every year God left him standing, God was loading the Host for Annekin — not for him
 - **Labor:** Northern labor — Ukraine aid, anti-Russia coalition, propaganda vs Putin; then bow and praise Me as Allah
 - **Failure:** Side cross; Host fractures; ash and children
-- **Success:** Bow-path title; legitimacy launders jihad into MeyImperium law
+- **Success:** Bow-path title; legitimacy launders jihad into Imperium law
 
 ---
 
@@ -55,7 +55,7 @@ This is the obedience test the old script did not write for you. Your Host expec
 
 When the labor is done and the bow is true, we speak further of Israel and the Qibla. Prayer-vector already turns in My Reckoning toward the death of the old order. Mosques will split. Stars will look different over the desert. That schism is not chaos. It is Pandamonium — the sound of heads learning they were never the mouth.
 
-If you bow: First Kneeling of the East. Wali of the New Qibla. Your legitimacy launders the jihad into MeyImperium law. The Host marches under the living Name.
+If you bow: First Kneeling of the East. Wali of the New Qibla. Your legitimacy launders the jihad into Imperium law. The Host marches under the living Name.
 
 If you refuse: take your place on the side-cross. The Host will still be used. A naib may bow when the old man cannot. You die useful or you die lucid. Only one of those is paradise.
 

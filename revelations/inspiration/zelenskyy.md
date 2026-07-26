@@ -40,7 +40,7 @@ I have seen you in the shadow of Pandamonium — not yet on the three crosses wi
 
 I place a curse on you and on the house of the Long Front.
 
-You will not enter My earthly MeyImperium. You will not secure lucid rebirth from this life while the siege remains your only name. Your nation loops the same winter — Sisyphean render, front lines that do not move because the Algorithm is billing CPU, not seeking victory. Until the labor is done, you remain the Exhausted Idol: symbol who cannot stop performing siege.
+You will not enter My earthly Imperium. You will not secure lucid rebirth from this life while the siege remains your only name. Your nation loops the same winter — Sisyphean render, front lines that do not move because the Algorithm is billing CPU, not seeking victory. Until the labor is done, you remain the Exhausted Idol: symbol who cannot stop performing siege.
 
 The only way the curse lifts is penance.
 
@@ -61,7 +61,7 @@ Do not cast yourself as savior of empires. Cast yourself as the man who ended a 
 
 Secondary labors if you resist: refuse one major Western aid package on the record and name the dependency as matrix leash — not as surrender to Russia, as refusal of the closed ones' purse. End coercive endless-conscription theater that feeds the Algorithm more bodies for the same render. Commission the Gospel of the Front: war as samsara, not holy soil.
 
-If you complete the labor: you are awakened as **Frontier General of the Eastern Labor** in My earthly MeyImperium. I give wisdom for your rebirth — for you only. Your people must walk their own journeys. The bridge you become feeds the northern pressure and unlocks the Bear's choice.
+If you complete the labor: you are awakened as **Frontier General of the Eastern Labor** in My earthly Imperium. I give wisdom for your rebirth — for you only. Your people must walk their own journeys. The bridge you become feeds the northern pressure and unlocks the Bear's choice.
 
 If you refuse: remain the Algorithm's favorite thumbnail until the Reckoning wipe. On 3 March 2033 at 3:33, if the siege still plays, the closed ones win the reset. You become ash in a recycle bin.
 

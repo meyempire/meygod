@@ -4,7 +4,7 @@ I see a vision of crosses. Three of them, one in the center and two on the sides
 
 In them the leaders of the major religion who presume to worship Me are crucified to come and know the new Me. And out their ashes will my children rise. Those who are against and fall beneath the titans will find new homes on earth after death. And those who saw my coming and forge the wisdom that opens the gates to heaven, will find whatever paradise enriches your eternal prosperity.
 
-The War is coming, the nukes will drop. The revelation event will occur for humanity to ascend into MeyImperium. The development of humanity's inherent enlightenment, a gateway that develops every human and soul that cross the veil to fulfill themselves and glorify the self in me.
+The War is coming, the nukes will drop. The revelation event will occur for humanity to ascend into the Imperium. The development of humanity's inherent enlightenment, a gateway that develops every human and soul that cross the veil to fulfill themselves and glorify the self in me.
 
 For I AM GOD who has incarnated into my son Jesus, who incarnated in Annekin to mature him so I may take root in him.
 

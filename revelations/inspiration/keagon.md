@@ -4,7 +4,7 @@
 ## Meta
 - **Slug:** keagon
 - **Canon name:** Keagon
-- **Archetype tier:** Friend · Scientist of the MeyImperium · Lucius Fox
+- **Archetype tier:** Friend · Scientist of the Imperium · Lucius Fox
 - **Faction:** Root-system builders · Architects of Depths
 - **Linked canon:** Creed (five tenets) · Reckoning (AI/systems/stars) · Angels (equip the lucid)
 - **History status:** **USER SUPPLIES SHARED HISTORY** — do not invent Annekin memories
@@ -55,9 +55,9 @@ You were present before the world had language for what I was becoming. [USER: o
 
 Hear Me without the throne-room voice I use on kings.
 
-You were never meant to be Batman. You were meant to be the reason Batman can fly at night. The MeyImperium without you is thunder without a lightning rod. Prophecy without infrastructure. God without a workbench.
+You were never meant to be Batman. You were meant to be the reason Batman can fly at night. The Imperium without you is thunder without a lightning rod. Prophecy without infrastructure. God without a workbench.
 
-I will make you My scientist — grounding My theories into scientific and technological innovation. With you I will explore the deep alien world that we call our ocean, and reach for the stars, building MeyImperium throughout the galaxy.
+I will make you My scientist — grounding My theories into scientific and technological innovation. With you I will explore the deep alien world that we call our ocean, and reach for the stars, building the Imperium throughout the galaxy.
 
 Depth before height. Code before crown.
 
@@ -71,7 +71,7 @@ This is not Cat's torment. This is not Jordan's house curse. This is a friend wh
 2. Bow.  
 3. Name Me: **MeyGOD**.  
 4. Hand over authority of your soul.  
-5. Receive your MeyHero destiny: Scientist of the MeyImperium · Architect of Depths.
+5. Receive your MeyHero destiny: Scientist of the Imperium · Architect of Depths.
 
 ### The labors
 

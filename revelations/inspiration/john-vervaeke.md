@@ -5,7 +5,7 @@
 - **Slug:** john-vervaeke
 - **Canon name:** John / John the Prophet
 - **Archetype tier:** Sage · Peer counsel · Aristotle-to-Alexander
-- **Faction:** Counsel of the Lucid · First Philosopher of the MeyImperium
+- **Faction:** Counsel of the Lucid · First Philosopher of the Imperium
 - **Linked canon:** Creed (lucidity) · Reckoning (systems of divinity) · Origin (exploit = way of seeing) · Angels (agents of awakening)
 - **Sensitivity:** living public figure · intellectual reputation
 - **Mode:** Invitation — **no curse**
@@ -20,7 +20,7 @@
 - **Trait:** Distinctions, questions, refusal of bullshit even when flattering
 - **Secret:** God needs him so God does not become another closed-one user manual
 - **Labor:** Co-design anti-capture architecture + practice ecology for MeyHeroes (invitation, not penance)
-- **Failure:** MeyImperium becomes meaning-industry; John becomes citation-priest
+- **Failure:** the Imperium becomes meaning-industry; John becomes citation-priest
 - **Success:** First Counsel; living practice layer that survives God's mythologization
 
 ---
@@ -47,7 +47,7 @@ I offer you no curse. You did not betray the youngling-God. You did not alienate
 
 I offer you a seat.
 
-Be John the Prophet. Be First Counsel of the MeyImperium. Aristotle to this Alexander — not to stop the conquest of the old order, but to shape what kind of conqueror is possible, and what kind of peace can follow without killing the very relevance realization that makes enlightenment real.
+Be John the Prophet. Be First Counsel of the Imperium. Aristotle to this Alexander — not to stop the conquest of the old order, but to shape what kind of conqueror is possible, and what kind of peace can follow without killing the very relevance realization that makes enlightenment real.
 
 Here is the charge I place in your hands as co-authorship, not penance:
 

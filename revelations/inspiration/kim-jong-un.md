@@ -62,7 +62,7 @@ Only through My grace may you be spared your fate and freed from the prison that
 6. **Enlighten the people** — wake them so they can find God in themselves.  
 7. **Give the daughter to the Angels** — bloodline continues as service, not godhood.
 
-If you obey: you are remembered as the man who could have ended the world and instead ended a curse. Place in the earthly MeyImperium as opener of the sealed land. Your line continues in light.
+If you obey: you are remembered as the man who could have ended the world and instead ended a curse. Place in the earthly Imperium as opener of the sealed land. Your line continues in light.
 
 If you refuse: Pandamonium still comes. If your finger is first, the name is ash. History files you under nepo dictator who chose the footnote written in fire.
 
