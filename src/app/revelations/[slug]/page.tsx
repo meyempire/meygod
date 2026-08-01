@@ -15,6 +15,7 @@ import { ShareButtons } from "@/components/ShareButtons";
 import { ConfessionSection } from "@/components/ConfessionSection";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/constants";
+import { getLetterImages } from "@/lib/letters";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -93,6 +94,7 @@ export default async function BlogPostPage({ params }: Props) {
           rawContent={(post as any).raw || ""}
           bookTitle={post.title}
           scriptureFilename={(post as any).scripture || ""}
+          letterImages={getLetterImages((post as any).scripture || "")}
         />
       )}
 
