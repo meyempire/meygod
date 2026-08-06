@@ -1,5 +1,5 @@
 import { Feed } from "feed";
-import { getPosts } from "@/lib/posts";
+import { getPosts, compareByScriptureNumber } from "@/lib/posts";
 import { getDreamCards } from "@/lib/dreams";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
 
@@ -36,7 +36,7 @@ export async function getFeed(): Promise<Feed> {
   const posts = getPosts();
 
   const allPosts = [...posts, ...dreams]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .sort(compareByScriptureNumber)
     .slice(0, 50);
 
   for (const post of allPosts) {

@@ -20,10 +20,13 @@ type PostItem = {
   isDream?: boolean;
 };
 
+type BookFilter = "all" | "book-one" | "book-two" | "dreams";
+
 type Props = {
   posts: PostItem[];
   allTags: { tag: string; count: number }[];
   allCategories: { category: string; count: number }[];
+  dreamCount: number;
 };
 
 function BrandedTitle() {
@@ -36,9 +39,30 @@ function BrandedTitle() {
   );
 }
 
-export default function RevelationsClient({ posts, allTags, allCategories }: Props) {
+const bookFilters: { key: BookFilter; label: string; baseClass: string; activeClass: string }[] = [
+  {
+    key: "book-one",
+    label: "Book 1: Death",
+    baseClass: "bg-accent/10 text-accent-2 border border-accent/20 hover:bg-accent/20",
+    activeClass: "bg-accent text-white border-accent shadow-[0_0_12px_rgba(255,6,6,0.3)]",
+  },
+  {
+    key: "book-two",
+    label: "Book 2: Rebirth",
+    baseClass: "bg-yellow-500/10 text-yellow-400 border border-yellow-500/25 hover:bg-yellow-500/20",
+    activeClass: "bg-yellow-500 text-black border-yellow-500 shadow-[0_0_12px_rgba(234,179,8,0.3)]",
+  },
+  {
+    key: "dreams",
+    label: "Dreams",
+    baseClass: "bg-purple-500/10 text-purple-300 border border-purple-500/25 hover:bg-purple-500/20",
+    activeClass: "bg-purple-500 text-white border-purple-500 shadow-[0_0_12px_rgba(147,51,234,0.3)]",
+  },
+];
+
+export default function RevelationsClient({ posts, allTags, allCategories, dreamCount }: Props) {
   const [search, setSearch] = useState("");
-  const [typeFilter, setTypeFilter] = useState<"all" | "revelations" | "dreams">("all");
+  const [bookFilter, setBookFilter] = useState<BookFilter>("all");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -48,12 +72,13 @@ export default function RevelationsClient({ posts, allTags, allCategories }: Pro
       const q = search.toLowerCase();
       result = result.filter((p) => p.title.toLowerCase().includes(q) || p.description.toLowerCase().includes(q));
     }
-    if (typeFilter === "revelations") result = result.filter((p) => !p.isDream);
-    else if (typeFilter === "dreams") result = result.filter((p) => p.isDream);
+    if (bookFilter === "book-one") result = result.filter((p) => p.tags.includes("book-one-death"));
+    else if (bookFilter === "book-two") result = result.filter((p) => p.tags.includes("book-two-rebirth"));
+    else if (bookFilter === "dreams") result = result.filter((p) => p.isDream);
     if (selectedTag) result = result.filter((p) => p.tags.includes(selectedTag));
     if (selectedCategory) result = result.filter((p) => p.category.toLowerCase() === selectedCategory.toLowerCase());
     return result;
-  }, [posts, search, typeFilter, selectedTag, selectedCategory]);
+  }, [posts, search, bookFilter, selectedTag, selectedCategory]);
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useRevelationPages(filtered);
 
@@ -79,6 +104,33 @@ export default function RevelationsClient({ posts, allTags, allCategories }: Pro
 
         <div className="mb-6">
           <SearchRevelations onSearch={setSearch} />
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-2 mb-4">
+          <button
+            onClick={() => setBookFilter("all")}
+            className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 whitespace-nowrap ${
+              bookFilter === "all"
+                ? "bg-surface text-text border border-line/40"
+                : "text-text-muted border border-line/20 hover:text-text hover:bg-surface"
+            }`}
+          >
+            All
+          </button>
+          {bookFilters.map((f) => (
+            <button
+              key={f.key}
+              onClick={() => setBookFilter(bookFilter === f.key ? "all" : f.key)}
+              className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 whitespace-nowrap ${
+                bookFilter === f.key ? f.activeClass : f.baseClass
+              }`}
+            >
+              {f.label}
+              {f.key === "dreams" && dreamCount > 0 && (
+                <span className="ml-1 opacity-60">({dreamCount})</span>
+              )}
+            </button>
+          ))}
         </div>
 
         <div className="flex flex-wrap justify-center gap-2 mb-10">

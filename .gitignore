@@ -43,3 +43,7 @@ next-env.d.ts
 # velite output
 .velite
 supabase/.temp/
+
+# design assets
+assets/
+icon.png

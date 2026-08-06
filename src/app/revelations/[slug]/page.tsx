@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPost, getPosts } from "@/lib/posts";
+import { getPost, getPosts, compareByScriptureNumber } from "@/lib/posts";
 import { getDream, getDreams, getDreamCards } from "@/lib/dreams";
 import Link from "next/link";
 import { TableOfContents } from "@/components/navigation/TableOfContents";
@@ -61,9 +61,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const [velitePosts, dreamCards] = await Promise.all([Promise.resolve(getPosts()), getDreamCards()]);
-  const sorted = [...velitePosts, ...dreamCards].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  const sorted = [...velitePosts, ...dreamCards].sort(compareByScriptureNumber);
   const currentIndex = sorted.findIndex((p) => p.slug === slug);
   const previousPost = currentIndex < sorted.length - 1 ? sorted[currentIndex + 1] : null;
   const nextPost = currentIndex > 0 ? sorted[currentIndex - 1] : null;

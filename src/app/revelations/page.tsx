@@ -1,6 +1,5 @@
-import { getPosts, getAllTags, getAllCategories } from "@/lib/posts";
+import { getPosts, getAllTags, getAllCategories, compareByScriptureNumber } from "@/lib/posts";
 import { getDreamCards } from "@/lib/dreams";
-import { POSTS_PER_PAGE } from "@/lib/constants";
 import RevelationsClient from "./RevelationsClient";
 import type { Metadata } from "next";
 
@@ -28,15 +27,14 @@ export default async function RevelationsPage() {
       category: p.category,
       readingTime: p.readingTime,
       isDream: p.isDream || false,
+      scripture: p.scripture || undefined,
     }))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort(compareByScriptureNumber);
 
-  const totalPages = Math.ceil(unifiedPosts.length / POSTS_PER_PAGE);
+  const dreamCount = dreams.length;
 
   const allTags = getAllTags();
-  const dreamCount = dreams.length;
   const tagMap = new Map(allTags.map((t) => [t.tag, t.count]));
-  tagMap.set("dream", (tagMap.get("dream") || 0) + dreamCount);
   const mergedTags = Array.from(tagMap.entries())
     .map(([tag, count]) => ({ tag, count }))
     .sort((a, b) => b.count - a.count);
@@ -50,6 +48,7 @@ export default async function RevelationsPage() {
       posts={unifiedPosts}
       allTags={mergedTags}
       allCategories={mergedCategories}
+      dreamCount={dreamCount}
     />
   );
 }

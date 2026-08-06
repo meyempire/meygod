@@ -1,11 +1,36 @@
 import { posts as allPosts } from "#site/content";
+import { parseScriptureRef } from "@/lib/letters";
 
 export type Post = (typeof allPosts)[number];
+
+export type ScriptureRef = { book: number; chapter: number };
+
+export function scriptureRef(post: { scripture?: string | null }): ScriptureRef | null {
+  if (!post.scripture) return null;
+  return parseScriptureRef(post.scripture);
+}
+
+/** Letter posts by book DESC, chapter DESC; unnumbered / dreams by date DESC after. */
+export function compareByScriptureNumber(
+  a: { scripture?: string | null; date: string; isDream?: boolean },
+  b: { scripture?: string | null; date: string; isDream?: boolean },
+): number {
+  const refA = a.isDream ? null : scriptureRef(a);
+  const refB = b.isDream ? null : scriptureRef(b);
+
+  if (refA && refB) {
+    if (refA.book !== refB.book) return refB.book - refA.book;
+    return refB.chapter - refA.chapter;
+  }
+  if (refA) return -1;
+  if (refB) return 1;
+  return new Date(b.date).getTime() - new Date(a.date).getTime();
+}
 
 export function getPosts(): Post[] {
   return allPosts
     .filter((p) => !p.draft)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort(compareByScriptureNumber);
 }
 
 export function getPost(slug: string): Post | undefined {

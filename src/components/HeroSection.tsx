@@ -32,7 +32,7 @@ export function HeroSection() {
       </p>
 
       <div className="flex flex-wrap justify-center gap-4 mb-10">
-        <StoneButton href="/revelations/prophecy-of-reckoning">Begin Your Hero&apos;s Journey</StoneButton>
+        <StoneButton href="/revelations/1-1-prophecy-of-reckoning">Begin Your Hero&apos;s Journey</StoneButton>
       </div>
 
       <div className="mb-10">

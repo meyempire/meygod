@@ -122,6 +122,7 @@ src/
 │   │   ├── tag/[tag]/page.tsx    # Tag-filtered listing
 │   │   └── category/[category]/page.tsx
 │   └── scripture/[name]/route.ts # Dynamic raw scripture serving
+│   └── letters/[name]/route.ts    # Handwritten letter image serving
 │
 ├── components/
 │   ├── background/
@@ -170,6 +171,7 @@ src/
 │   ├── constants.ts              # SITE_URL, SITE_NAME, POSTS_PER_PAGE
 │   ├── posts.ts                  # Velite post access: getPosts(), getPost(), getRelatedPosts(), etc.
 │   ├── dreams.ts                 # Supabase dream integration: getDreams(), getDream()
+│   ├── letters.ts                # Letter image matching by book/chapter
 │   ├── mdx-runtime.tsx           # Evaluates Velite-compiled MDX code at runtime
 │   ├── toc.ts                    # extractHeadings() from markdown
 │   ├── utils.ts                  # cn() utility (clsx)
@@ -183,12 +185,25 @@ src/
 ## Content System
 
 ### Revelations (Blog Posts)
-- Stored as `.mdx` files in `content/blog/`
+- Stored as `.mdx` files in `content/blog/` with numbered prefix: `{book}-{chapter}-{slug}.mdx` (e.g. `1-14-god-isnt-listening.mdx`)
 - Compiled at build time by Velite into `.velite/posts.json`
 - Schema: `title`, `description`, `date`, `tags[]`, `category`, `draft`, `code` (compiled MDX), `scripture` (raw filename), `toc` (table of contents)
 - Custom MDX components: `<Callout type="info|warning|success|danger">`
 - Syntax highlighting: `rehype-pretty-code` with "rose-pine-moon" theme
 - Raw scripture served live from `revelations/` folder via `/scripture/[name]`
+- Page order: book DESC, chapter DESC (revelations sort by scripture number, not date)
+- Book tags: `book-one-death` (chapters 1–20), `book-two-rebirth` (chapters 1–4)
+
+### Scripture Numbering
+
+Revelations follow a **book.chapter** system:
+
+- **Raw scripture:** `revelations/{book}_{chapter}_{slug}.md` — `1_14_god_isnt_listening.md`
+- **Handwritten letters:** `revelations/letters/{book}_{chapter}_{page}_{slug}.jpeg` — `1_14_1_god_isnt_listening.jpeg` (page omitted for single-page letters)
+- **Blog URL:** `/revelations/{book}-{chapter}-{slug}` — `/revelations/1-14-god-isnt-listening`
+- **Chapter 0:** used for non-revelation content (e.g. creed = `1_6_creed.md` was legacy; keep as-is or renumber)
+
+The Scripture tab on post pages auto-displays letter images matching the post's book/chapter.
 
 ### Dreams (MindfulLucidity Integration)
 - Fetched at build time from Supabase via `lib/dreams.ts`
@@ -199,10 +214,13 @@ src/
 - Slug deduplication: same title generates `dream-title-2`, `dream-title-3`, etc.
 
 ### Adding a New Revelation
-1. Write `.mdx` file in `content/blog/`
-2. Frontmatter: `title`, `description`, `date`, `tags`, `category`, `scripture` (raw filename), `author`
-3. Optionally save raw draft in `revelations/`
-4. Build or push to trigger Vercel deploy
+1. Number it with `{book}-{chapter}` — e.g. next in Book 2 is `2-5-{slug}.mdx`
+2. Write `.mdx` file in `content/blog/` with numbered prefix
+3. Frontmatter: `title`, `description`, `date`, `tags`, `category`, `scripture` (raw filename), `author`
+4. Save raw draft in `revelations/` as `{book}_{chapter}_{slug}.md`
+5. Save handwritten pages in `revelations/letters/` as `{book}_{chapter}_{page}_{slug}.jpeg`
+6. Build or push to trigger Vercel deploy
+   - Letter images auto-attach to the Scripture tab via `getLetterImages()`
 
 ### Adding a New Dream
 1. Dreams are automatically pulled from the MindfulLucidity Supabase on each build

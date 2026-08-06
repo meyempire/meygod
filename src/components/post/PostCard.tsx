@@ -8,11 +8,21 @@ interface PostCardProps {
   featured?: boolean;
 }
 
+function bookBadge(post: Post): { label: string; isBook: boolean; color: "red" | "yellow" | "purple" } | null {
+  const tags = post.tags || [];
+  if (tags.includes("book-one-death")) return { label: "Book 1: Death", isBook: true, color: "red" };
+  if (tags.includes("book-two-rebirth")) return { label: "Book 2: Rebirth", isBook: true, color: "yellow" };
+  if ((post as any).isDream) return { label: "Dreams", isBook: true, color: "purple" };
+  return null;
+}
+
 export default function PostCard({ post, featured = false }: PostCardProps) {
   const hash = post.slug.split("").reduce((a, c) => a + c.charCodeAt(0), 0);
   const delay = (hash % 4) + (hash % 13) / 10;
   const duration = 8 + (hash % 7);
   const size = 150 + (hash % 100);
+  const book = bookBadge(post);
+  const displayTags = (post.tags || []).filter((t) => !t.startsWith("book-"));
 
   return (
     <Link href={`/revelations/${post.slug}`} className="group block h-full">
@@ -39,11 +49,25 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
           </div>
         )}
 
-        <div className="relative z-10 flex flex-wrap gap-2 mb-3">
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-accent/10 text-accent-2 border border-accent/20">
-            {post.category}
-          </span>
-          {post.tags.slice(0, 3).map((tag) => (
+        <div className="relative z-10 flex flex-nowrap gap-2 mb-3 overflow-hidden">
+          {book ? (
+            <span
+              className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium border whitespace-nowrap ${
+                book.color === "yellow"
+                  ? "bg-yellow-500/10 text-yellow-400 border-yellow-500/25"
+                  : book.color === "purple"
+                  ? "bg-purple-500/10 text-purple-300 border-purple-500/25"
+                  : "bg-accent/10 text-accent-2 border-accent/20"
+              }`}
+            >
+              {book.label}
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-accent/10 text-accent-2 border border-accent/20 whitespace-nowrap">
+              {post.category}
+            </span>
+          )}
+          {displayTags.slice(0, 3).map((tag) => (
             <TagBadge key={tag} tag={tag} size="sm" linkable={false} />
           ))}
         </div>
