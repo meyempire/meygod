@@ -7,6 +7,7 @@ import Logo from "./Logo";
 import { BorderBeam } from "@/components/ui/border-beam";
 
 const links = [
+  { label: "Festival", href: "/festival", external: false },
   { label: "Altar", href: "/", external: false },
   { label: "Revelations", href: "/revelations", external: false },
   { label: "Creed", href: "/creed", external: false },
@@ -39,9 +40,48 @@ export default function Navbar() {
         {links.map((link) => {
           const isHome = pathname === "/";
           const active = link.href === "/" ? isHome : pathname.startsWith(link.href);
+          const isFestival = link.href === "/festival";
           const cls = `relative text-xs font-medium uppercase tracking-wider py-2 px-3 rounded-lg transition-colors ${
             mounted && active ? "text-text bg-accent/8" : "text-text-muted hover:text-text hover:bg-accent/5"
           }`;
+          if (isFestival) {
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cls}
+                style={{ paddingTop: "6px", paddingBottom: "6px" }}
+              >
+                <span
+                  className="flex flex-col items-center leading-none"
+                  style={{ textTransform: "none" }}
+                >
+                  <span className="text-[15px] leading-none">
+                    <span style={{ fontFamily: "var(--font-logo)", fontWeight: 700, color: "var(--color-text)" }}>Mey</span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-god)",
+                        color: "var(--color-accent)",
+                        textShadow: "0 0 10px rgba(255,6,6,0.5), 0 0 24px rgba(255,6,6,0.2)",
+                      }}
+                    >
+                      GOD
+                    </span>
+                  </span>
+                  <span
+                    className="text-[9px] leading-none"
+                    style={{
+                      fontFamily: "var(--font-god)",
+                      color: "var(--color-accent)",
+                      textShadow: "0 0 10px rgba(255,6,6,0.5), 0 0 24px rgba(255,6,6,0.2)",
+                    }}
+                  >
+                    FESTIVAL
+                  </span>
+                </span>
+              </Link>
+            );
+          }
           return (
             <Link key={link.href} href={link.href} className={cls}>
               {link.label}

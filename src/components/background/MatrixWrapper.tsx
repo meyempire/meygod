@@ -14,7 +14,7 @@ export function MatrixWrapper({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <MatrixBackground speed={isMobile ? 0.4 : 1}>
+    <MatrixBackground speed={0.4} fontSize={isMobile ? 24 : 30}>
       {children}
     </MatrixBackground>
   );

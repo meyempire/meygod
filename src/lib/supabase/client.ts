@@ -7,6 +7,7 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
 
 const COMMENTS_TABLE = "meygod_comments";
 const SUBSCRIBERS_TABLE = "meygod_subscribers";
+const FESTIVAL_RSVP_TABLE = "meygod_festival_rsvps";
 
 export interface Comment {
   id: number;
@@ -47,5 +48,12 @@ export function subscribeComments(pageSlug: string, onUpdate: (comments: Comment
 
 export async function addSubscriber(email: string) {
   const { error } = await supabase.from(SUBSCRIBERS_TABLE).insert({ email });
+  return { error };
+}
+
+export async function addFestivalRsvp(name: string, email: string) {
+  const { error } = await supabase
+    .from(FESTIVAL_RSVP_TABLE)
+    .insert({ name, email });
   return { error };
 }

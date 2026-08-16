@@ -40,6 +40,9 @@ export default function MobileNavbar() {
           <Link href="/creed" className={`text-[10px] font-medium uppercase tracking-wider whitespace-nowrap transition-colors ${active("/creed") ? "text-text" : "text-text-muted hover:text-text"}`}>
             Creed
           </Link>
+          <Link href="/festival" className={`ml-2 text-[10px] font-medium uppercase tracking-wider whitespace-nowrap transition-colors ${active("/festival") ? "text-text" : "text-text-muted hover:text-text"}`}>
+            Festival
+          </Link>
         </div>
       </div>
     </div>

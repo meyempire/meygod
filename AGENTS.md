@@ -103,11 +103,15 @@ src/
 │   ├── page.tsx                  # Altar (homepage): HeroSection + Recent Revelations + Confession
 │   ├── not-found.tsx             # 404
 │   ├── robots.ts                 # robots.txt
-│   ├── sitemap.ts                # Dynamic sitemap (includes dreams)
+│   ├── sitemap.ts                # Dynamic sitemap (includes dreams + festival)
 │   ├── api/rebuild/route.ts      # Webhook for MindfulLucidity → rebuild
 │   ├── creed/                    # /creed route (was /about)
 │   │   ├── page.tsx              # Server: loads creed post, passes to CreedClient
 │   │   └── CreedClient.tsx       # Client: hero + animated subtitle + 5 tenets (GlowCard)
+│   ├── festival/                 # /festival route — The Festival event page (flyer QR target)
+│   │   ├── page.tsx              # Server: metadata + Event JSON-LD
+│   │   ├── FestivalClient.tsx    # Client: countdown hero, details, Cast, scripture, intro, RSVP
+│   │   └── opengraph-image.tsx   # Festival OG share image
 │   ├── feed/                     # RSS / Atom / JSON feeds
 │   │   ├── assemble.ts           # Shared feed builder
 │   │   ├── feed.xml/route.ts
@@ -123,6 +127,7 @@ src/
 │   │   └── category/[category]/page.tsx
 │   └── scripture/[name]/route.ts # Dynamic raw scripture serving
 │   └── letters/[name]/route.ts    # Handwritten letter image serving
+│   └── short-generator/page.tsx   # 1080x1920 canvas: matrix rain + sigil, click-to-record WebM
 │
 ├── components/
 │   ├── background/
@@ -155,6 +160,8 @@ src/
 │   │   └── TagBadge.tsx          # Pill tag with #dream purple cosmic variant
 │   ├── comments/
 │   │   └── Giscus.tsx            # Giscus GitHub Discussions widget (not active)
+│   ├── festival/
+│   │   └── Countdown.tsx         # Red-glow countdown to the Festival (client, SSR-safe)
 │   └── ui/                       # Ebon UI library (copied, not installed)
 │       ├── border-beam.tsx       # Animated border light beam
 │       ├── glow-card.tsx         # Radial glow card wrapper
@@ -169,6 +176,7 @@ src/
 │
 ├── lib/
 │   ├── constants.ts              # SITE_URL, SITE_NAME, POSTS_PER_PAGE
+│   ├── festival.ts               # Festival event constants (date, venue placeholders, tagline)
 │   ├── posts.ts                  # Velite post access: getPosts(), getPost(), getRelatedPosts(), etc.
 │   ├── dreams.ts                 # Supabase dream integration: getDreams(), getDream()
 │   ├── letters.ts                # Letter image matching by book/chapter
@@ -176,9 +184,39 @@ src/
 │   ├── toc.ts                    # extractHeadings() from markdown
 │   ├── utils.ts                  # cn() utility (clsx)
 │   └── supabase/
-│       ├── client.ts             # Browser Supabase client (comments, subscribers)
+│       ├── client.ts             # Browser Supabase client (comments, subscribers, festival RSVPs)
 │       └── server.ts             # Server Supabase client (dreams — service_role key)
+│
+└── scripts/
+    ├── shortgen/shortgen.js       # CLI: matrix rain → transparent MOV loop or still PNG
+    └── flyer/                     # Flyer asset generators (own package.json: @napi-rs/canvas + qrcode)
+        ├── assets.js             # sigil.png + brand-meygod.png wordmark
+        ├── qr.js                 # Stylized QR: white rounded modules, red glow, sigil center
+        ├── sigil.js              # Shared sigil path data + drawSigil()
+        ├── sigil.svg             # Standalone sigil for GIMP import
+        ├── rsvp.sql              # Supabase SQL for the meygod_festival_rsvps table
+        └── assets/               # Generated: matrix-rain-a5.png, sigil.png, brand-meygod.png, qr-festival.png
 ```
+
+## Short Generator (CLI)
+
+`scripts/shortgen/shortgen.js` renders the site's mobile matrix rain to a looping, transparent 1080x1920 MOV (PNG codec for alpha, since VP9 alpha is unsupported). Seamless loop via periodic column wrap + ghost warmup + deterministic glyphs. Flags: `--zoom=N` (default 4), `--seconds=N` (default 12), `--with-sigil`, `--with-text`, `--opaque`, `--codec=png|prores|ffv1|vp9`, `--out=file.mov`.
+
+**Still mode**: `--still` renders a single transparent PNG instead of a video — default 1819x2551 (A5 + 3mm bleed @ 300dpi), override with `--w=N --h=N`. No ffmpeg, no loop periodicity, 60-frame warmup for trail steady state.
+
+Requires `@napi-rs/canvas` — install in `scripts/shortgen/` (`npm i @napi-rs/canvas`). Run: `node scripts/shortgen/shortgen.js --out=/path/out.mov`.
+
+## Flyer Assets (CLI)
+
+`scripts/flyer/` generates the print assets for the A5 Festival flyer (own `package.json`; `npm i` installs `@napi-rs/canvas` + `qrcode`):
+
+- `node assets.js --out=dir` → `sigil.png` (3000px transparent) + `brand-meygod.png` (wordmark with baked glow)
+- `node qr.js --url=... --out=...` → stylized QR: white rounded modules, soft red glow, sigil centered (12 modules), EC level H, quiet zone 4, transparent ~2000px. Verified decodable with OpenCV at 7/8 scales — always do a phone test-scan of the final print.
+- `sigil.svg` — standalone sigil for GIMP import
+- `rsvp.sql` — Supabase table + RLS policy for festival RSVPs (run once in the SQL editor)
+- `assets/` — generated PNGs used by the GIMP workflow: `matrix-rain-a5.png`, `sigil.png`, `brand-meygod.png`, `qr-festival.png`
+
+**Flyer GIMP workflow**: canvas 154×216mm @ 300dpi (A5 + 3mm bleed), keep text ~8mm from edges. Export flattened PNG (keep resolution), then convert to the 2-page print PDF with `convert -density 300 -units PixelsPerInch front.png back.png meygod-festival-a5.pdf` and verify page size with `identify`/Ghostscript before sending to the shop.
 
 ---
 

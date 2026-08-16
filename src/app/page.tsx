@@ -2,7 +2,7 @@ import Link from "next/link";
 import Container from "@/components/ui/Container";
 import PostCard from "@/components/post/PostCard";
 import { HeroSection } from "@/components/HeroSection";
-import TheCoin from "@/components/TheCoin";
+// import TheCoin from "@/components/TheCoin";
 import { AltarConfession } from "@/components/ConfessionSection";
 import { getPosts } from "@/lib/posts";
 
@@ -13,7 +13,7 @@ export default function HomePage() {
     <Container>
       <HeroSection />
 
-      <TheCoin />
+      {/* <TheCoin /> */}
 
       <section className="mb-16">
         <h2 className="section-title text-center">Recent Revelations</h2>
