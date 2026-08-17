@@ -45,7 +45,7 @@ export function CountdownClient() {
             <Sigil size={207} />
           </SigilGlow>
         </div>
-        <div className="mt-32">
+        <div className="mt-26">
           <AnimatedShinyText
             shimmerWidth={180}
             gradientFrom="transparent"
