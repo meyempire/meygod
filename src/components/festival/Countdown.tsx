@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 interface CountdownProps {
   target: string; // ISO datetime
   doneLabel?: string;
+  size?: "md" | "lg";
 }
 
 interface Parts {
@@ -27,11 +28,21 @@ function diff(target: number): Parts {
   };
 }
 
-function Cell({ value, label }: { value: number; label: string }) {
+function Cell({ value, label, size }: { value: number; label: string; size: "md" | "lg" }) {
   return (
-    <div className="flex flex-col items-center min-w-[70px] sm:min-w-[92px]">
+    <div
+      className={`flex flex-col items-center ${
+        size === "lg"
+          ? "min-w-[74px] sm:min-w-[120px] md:min-w-[160px]"
+          : "min-w-[70px] sm:min-w-[92px]"
+      }`}
+    >
       <div
-        className="text-4xl sm:text-6xl font-bold tabular-nums leading-none"
+        className={`font-bold tabular-nums leading-none ${
+          size === "lg"
+            ? "text-5xl sm:text-7xl md:text-8xl"
+            : "text-4xl sm:text-6xl"
+        }`}
         style={{
           fontFamily: "var(--font-heading)",
           color: "var(--color-text)",
@@ -41,7 +52,9 @@ function Cell({ value, label }: { value: number; label: string }) {
         {String(value).padStart(2, "0")}
       </div>
       <div
-        className="mt-2 text-[10px] sm:text-xs uppercase tracking-[0.3em]"
+        className={`mt-2 uppercase tracking-[0.3em] ${
+          size === "lg" ? "text-xs sm:text-sm" : "text-[10px] sm:text-xs"
+        }`}
         style={{ color: "var(--color-text-muted)" }}
       >
         {label}
@@ -50,7 +63,11 @@ function Cell({ value, label }: { value: number; label: string }) {
   );
 }
 
-export function Countdown({ target, doneLabel = "THE REVEAL IS HERE" }: CountdownProps) {
+export function Countdown({
+  target,
+  doneLabel = "THE REVEAL IS HERE",
+  size = "md",
+}: CountdownProps) {
   const [mounted, setMounted] = useState(false);
   const [parts, setParts] = useState<Parts>(() => diff(new Date(target).getTime()));
 
@@ -75,7 +92,9 @@ export function Countdown({ target, doneLabel = "THE REVEAL IS HERE" }: Countdow
   if (parts.done) {
     return (
       <div
-        className="text-3xl sm:text-5xl font-bold tracking-widest py-6"
+        className={`font-bold tracking-widest py-6 ${
+          size === "lg" ? "text-4xl sm:text-6xl" : "text-3xl sm:text-5xl"
+        }`}
         style={{
           fontFamily: "var(--font-heading)",
           color: "var(--color-accent)",
@@ -88,11 +107,11 @@ export function Countdown({ target, doneLabel = "THE REVEAL IS HERE" }: Countdow
   }
 
   return (
-    <div className="flex items-start justify-center gap-3 sm:gap-6">
-      <Cell value={parts.days} label="Days" />
-      <Cell value={parts.hours} label="Hours" />
-      <Cell value={parts.minutes} label="Minutes" />
-      <Cell value={parts.seconds} label="Seconds" />
+    <div className={`flex items-start justify-center ${size === "lg" ? "gap-4 sm:gap-10" : "gap-3 sm:gap-6"}`}>
+      <Cell value={parts.days} label="Days" size={size} />
+      <Cell value={parts.hours} label="Hours" size={size} />
+      <Cell value={parts.minutes} label="Minutes" size={size} />
+      <Cell value={parts.seconds} label="Seconds" size={size} />
     </div>
   );
 }

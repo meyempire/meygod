@@ -107,41 +107,47 @@ export function FestivalClient({ mapExists = false }: { mapExists?: boolean }) {
     <div>
       {/* ---------- Hero ---------- */}
       <div className="section--hero">
-        <div className="mb-16 sm:mb-24 sm:hidden">
-          <Sigil size={110} />
-        </div>
-        <div className="mb-16 sm:mb-24 hidden sm:block">
-          <Sigil size={200} />
-        </div>
-        <div className="mb-6">
-          <AnimatedShinyText
-            shimmerWidth={180}
-            gradientFrom="transparent"
-            gradientVia="rgba(255,6,6,0.6)"
-            gradientTo="transparent"
-          >
-            <BrandName className="text-5xl sm:text-6xl md:text-7xl" />
-          </AnimatedShinyText>
-        </div>
-        <h1
-          className="relative z-10 -mt-3 text-2xl sm:-mt-4 sm:text-4xl"
-          style={{
-            fontFamily: "var(--font-god)",
-            color: "var(--color-accent)",
-            textShadow: "0 0 20px rgba(255,6,6,0.5), 0 0 40px rgba(255,6,6,0.25)",
-          }}
+        <Link
+          href="/festival/countdown"
+          className="flex flex-col items-center"
+          aria-label="Open the fullscreen countdown"
         >
-          FESTIVAL
-        </h1>
-        <p className="mb-2 pt-6 text-text text-sm sm:text-base uppercase tracking-[0.35em] text-center">
-          {FESTIVAL_TAGLINE}
-        </p>
-        <p className="mb-6 text-text-muted text-sm text-center">
-          {FESTIVAL_DAY_LABEL}
-        </p>
-        <div className="mb-8">
-          <Countdown target={FESTIVAL_DATE} />
-        </div>
+          <div className="mb-16 sm:mb-24 sm:hidden">
+            <Sigil size={110} />
+          </div>
+          <div className="mb-16 sm:mb-24 hidden sm:block">
+            <Sigil size={200} />
+          </div>
+          <div className="mb-6">
+            <AnimatedShinyText
+              shimmerWidth={180}
+              gradientFrom="transparent"
+              gradientVia="rgba(255,6,6,0.6)"
+              gradientTo="transparent"
+            >
+              <BrandName className="text-5xl sm:text-6xl md:text-7xl" />
+            </AnimatedShinyText>
+          </div>
+          <h1
+            className="relative z-10 -mt-3 text-2xl sm:-mt-4 sm:text-4xl"
+            style={{
+              fontFamily: "var(--font-god)",
+              color: "var(--color-accent)",
+              textShadow: "0 0 20px rgba(255,6,6,0.5), 0 0 40px rgba(255,6,6,0.25)",
+            }}
+          >
+            FESTIVAL
+          </h1>
+          <p className="mb-2 pt-6 text-text text-sm sm:text-base uppercase tracking-[0.35em] text-center">
+            {FESTIVAL_TAGLINE}
+          </p>
+          <p className="mb-6 text-text-muted text-sm text-center">
+            {FESTIVAL_DAY_LABEL}
+          </p>
+          <div className="mb-8">
+            <Countdown target={FESTIVAL_DATE} />
+          </div>
+        </Link>
         <div className="mb-10">
           <ShareButtons
             title={`MeyGOD Festival — ${FESTIVAL_TAGLINE}. Sunday 30 August. All are welcome. None are exempt.`}

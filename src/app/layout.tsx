@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
 import { Rajdhani, Space_Grotesk, Space_Mono, Chakra_Petch } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import MobileNavbar from "@/components/MobileNavbar";
-import Footer from "@/components/Footer";
-import { MatrixWrapper } from "@/components/background/MatrixWrapper";
 import { Providers } from "./Providers";
 import "./globals.css";
 
@@ -70,14 +66,7 @@ export default function RootLayout({
       className={`dark ${rajdhani.variable} ${spaceGrotesk.variable} ${spaceMono.variable} ${chakraPetch.variable}`}
     >
       <body className="min-h-screen bg-bg text-text antialiased">
-        <Providers>
-          <MatrixWrapper>
-            <MobileNavbar />
-            <Navbar />
-            <main>{children}</main>
-            <Footer />
-          </MatrixWrapper>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

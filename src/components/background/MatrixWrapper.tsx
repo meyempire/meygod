@@ -3,7 +3,15 @@
 import { useEffect, useState } from "react";
 import { MatrixBackground } from "./MatrixBackground";
 
-export function MatrixWrapper({ children }: { children: React.ReactNode }) {
+export function MatrixWrapper({
+  children,
+  scale = 1,
+  glow = false,
+}: {
+  children: React.ReactNode;
+  scale?: number;
+  glow?: boolean;
+}) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -14,7 +22,11 @@ export function MatrixWrapper({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <MatrixBackground speed={0.4} fontSize={isMobile ? 24 : 30}>
+    <MatrixBackground
+      speed={0.4}
+      fontSize={(isMobile ? 24 : 30) * scale}
+      glow={glow}
+    >
       {children}
     </MatrixBackground>
   );
