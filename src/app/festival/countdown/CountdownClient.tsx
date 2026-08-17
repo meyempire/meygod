@@ -36,13 +36,13 @@ export function CountdownClient() {
         aria-label="Return to the festival"
       >
         <div className="sm:hidden">
-          <SigilGlow size={122}>
-            <Sigil size={122} />
+          <SigilGlow size={110}>
+            <Sigil size={110} />
           </SigilGlow>
         </div>
         <div className="hidden sm:block">
-          <SigilGlow size={230}>
-            <Sigil size={230} />
+          <SigilGlow size={207}>
+            <Sigil size={207} />
           </SigilGlow>
         </div>
         <div className="mt-32">
