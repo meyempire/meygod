@@ -39,6 +39,7 @@ const FRAMES = FPS * SECONDS;
 const WITH_SIGIL = flag("with-sigil");
 const WITH_TEXT = flag("with-text");
 const OPAQUE = flag("opaque");
+const TRAILS = parseInt(value("trails", "0"), 10); // still mode: fixed trail length (0 = default 15-30)
 const CODEC = value("codec", "png"); // png | prores | ffv1 | vp9
 const OUT = value("out", STILL ? "meygod-matrix-still.png" : "meygod-matrix-loop.mov");
 
@@ -79,7 +80,7 @@ const chars = CHARS.split("");
 const rand = (n) => Math.floor(Math.random() * n);
 
 const createColumn = (x) => {
-  const length = 15 + rand(15);
+  const length = STILL && TRAILS > 0 ? TRAILS : 15 + rand(15);
   // per-frame speed in px, matching the site's formula: (0.5+rand*0.5)*SPEED*FONT_SIZE*0.5
   const v = (0.5 + Math.random() * 0.5) * SPEED * FONT_SIZE * 0.5;
   if (STILL) {
@@ -109,9 +110,16 @@ const createColumn = (x) => {
 
 const columnWidth = FONT_SIZE;
 const columnCount = Math.ceil(W / columnWidth);
-const columns = Array.from({ length: columnCount }, (_, i) =>
-  createColumn(i * columnWidth)
-);
+const MULTI = parseInt(value("multi", "1"), 10); // still mode: streams per column
+const columns = STILL
+  ? Array.from({ length: columnCount * MULTI }, (_, i) => {
+      const base = Math.floor(i / MULTI) * columnWidth;
+      const jitter = Math.floor((Math.random() - 0.5) * columnWidth);
+      return createColumn(base + jitter);
+    })
+  : Array.from({ length: columnCount }, (_, i) =>
+      createColumn(i * columnWidth)
+    );
 
 const canvas = createCanvas(W, H);
 const ctx = canvas.getContext("2d");
@@ -166,7 +174,7 @@ const render = (t) => {
       if (i === 0) {
         ctx.fillStyle = `rgba(${Math.min(255, rgb.r + 150)}, ${Math.min(255, rgb.g + 150)}, ${Math.min(255, rgb.b + 150)}, ${opacity})`;
         ctx.shadowColor = COLOR;
-        ctx.shadowBlur = 10 * ZOOM;
+        ctx.shadowBlur = STILL ? 0 : 10 * ZOOM;
       } else {
         ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity * 0.5})`;
         ctx.shadowBlur = 0;
