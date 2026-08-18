@@ -223,23 +223,24 @@ Requires `@napi-rs/canvas` — install in `scripts/shortgen/` (`npm i @napi-rs/c
 ## Content System
 
 ### Revelations (Blog Posts)
-- Stored as `.mdx` files in `content/blog/` with numbered prefix: `{book}-{chapter}-{slug}.mdx` (e.g. `1-14-god-isnt-listening.mdx`)
+- Stored as `.mdx` files in `content/blog/` with numbered prefix: `{book}-{chapter}-{verse}-{slug}.mdx` (e.g. `1-1-14-god-isnt-listening.mdx`)
 - Compiled at build time by Velite into `.velite/posts.json`
 - Schema: `title`, `description`, `date`, `tags[]`, `category`, `draft`, `code` (compiled MDX), `scripture` (raw filename), `toc` (table of contents)
 - Custom MDX components: `<Callout type="info|warning|success|danger">`
 - Syntax highlighting: `rehype-pretty-code` with "rose-pine-moon" theme
 - Raw scripture served live from `revelations/` folder via `/scripture/[name]`
-- Page order: book DESC, chapter DESC (revelations sort by scripture number, not date)
-- Book tags: `book-one-death` (chapters 1–20), `book-two-rebirth` (chapters 1–4)
+- Page order: book DESC, chapter DESC, verse DESC (revelations sort by scripture number, not date)
+- Book tags are enforced by book prefix: `1_*` → `book-one-death`, `2_*` → `book-two-rebirth`, `3_*` → `book-three-life` (add `book-three-life` to the vocab when the first `3_*` revelation lands)
 
 ### Scripture Numbering
 
-Revelations follow a **book.chapter** system:
+Revelations follow a **book.chapter.verse** system (book 1 = Death, book 2 = Rebirth, book 3 = Life):
 
-- **Raw scripture:** `revelations/{book}_{chapter}_{slug}.md` — `1_14_god_isnt_listening.md`
-- **Handwritten letters:** `revelations/letters/{book}_{chapter}_{page}_{slug}.jpeg` — `1_14_1_god_isnt_listening.jpeg` (page omitted for single-page letters)
-- **Blog URL:** `/revelations/{book}-{chapter}-{slug}` — `/revelations/1-14-god-isnt-listening`
-- **Chapter 0:** used for non-revelation content (e.g. creed = `1_6_creed.md` was legacy; keep as-is or renumber)
+- **Raw scripture:** `revelations/{book}_{chapter}_{verse}_{slug}.md` — `1_1_14_god_isnt_listening.md`, or `{book}_{chapter}_{slug}.md` for 2-part posts — `2_4_imposter.md`
+- **Handwritten letters:** `revelations/letters/{book}_{chapter}_{verse}_{page}_{slug}.jpeg` — `1_1_14_1_god_isnt_listening.jpeg` (page omitted for single-page letters)
+- **Blog URL:** `/revelations/{book}-{chapter}-{verse}-{slug}` — `/revelations/1-1-14-god-isnt-listening`
+- **Book 1 chapter 1** holds the original Death-book revelations as verses 1–20; **1-2-1** is Jesus the Anti-Christ
+- **Chapter 0:** used for non-revelation content (e.g. creed was `1_6_creed.md` legacy; keep as-is or renumber)
 
 The Scripture tab on post pages auto-displays letter images matching the post's book/chapter.
 
@@ -252,7 +253,7 @@ The Scripture tab on post pages auto-displays letter images matching the post's 
 - Slug deduplication: same title generates `dream-title-2`, `dream-title-3`, etc.
 
 ### Adding a New Revelation
-1. Number it with `{book}-{chapter}` — e.g. next in Book 2 is `2-5-{slug}.mdx`
+1. Number it with `{book}-{chapter}` — e.g. next in Book 2 is `2-7-{slug}.mdx`; add the matching `book-*` tag (`1_*` death, `2_*` rebirth, `3_*` life)
 2. Write `.mdx` file in `content/blog/` with numbered prefix
 3. Frontmatter: `title`, `description`, `date`, `tags`, `category`, `scripture` (raw filename), `author`
 4. Save raw draft in `revelations/` as `{book}_{chapter}_{slug}.md`
