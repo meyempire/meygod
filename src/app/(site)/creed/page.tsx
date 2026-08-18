@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function CreedPage() {
-  const creedPost = getPost("creed-of-enlightenment");
+  const creedPost = getPost("1-1-6-creed-of-enlightenment");
 
   return (
     <Container>

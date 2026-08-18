@@ -3,14 +3,14 @@ import { parseScriptureRef } from "@/lib/letters";
 
 export type Post = (typeof allPosts)[number];
 
-export type ScriptureRef = { book: number; chapter: number };
+export type ScriptureRef = { book: number; chapter: number; verse?: number };
 
 export function scriptureRef(post: { scripture?: string | null }): ScriptureRef | null {
   if (!post.scripture) return null;
   return parseScriptureRef(post.scripture);
 }
 
-/** Letter posts by book DESC, chapter DESC; unnumbered / dreams by date DESC after. */
+/** Letter posts by book DESC, chapter DESC, verse DESC; unnumbered / dreams by date DESC after. */
 export function compareByScriptureNumber(
   a: { scripture?: string | null; date: string; isDream?: boolean },
   b: { scripture?: string | null; date: string; isDream?: boolean },
@@ -20,7 +20,8 @@ export function compareByScriptureNumber(
 
   if (refA && refB) {
     if (refA.book !== refB.book) return refB.book - refA.book;
-    return refB.chapter - refA.chapter;
+    if (refA.chapter !== refB.chapter) return refB.chapter - refA.chapter;
+    return (refB.verse || 0) - (refA.verse || 0);
   }
   if (refA) return -1;
   if (refB) return 1;

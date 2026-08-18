@@ -2,6 +2,7 @@ import * as runtime from "react/jsx-runtime";
 import React from "react";
 import { Callout } from "@/components/ui/Callout";
 import { InspiredBy } from "@/components/ui/InspiredBy";
+import { BloodQuote } from "@/components/ui/BloodQuote";
 
 const scope = { Fragment: runtime.Fragment, jsx: runtime.jsx, jsxs: runtime.jsxs };
 
@@ -25,7 +26,7 @@ export function MDXContent({ code }: MDXContentProps) {
   const Component = getMDXComponent(code);
   return (
     <div className="prose max-w-none prose-p:my-5 prose-p:leading-relaxed prose-p:text-text">
-      <Component components={{ Callout, InspiredBy }} />
+      <Component components={{ BloodQuote, Callout, InspiredBy }} />
     </div>
   );
 }

@@ -29,7 +29,7 @@ function SigilGlow({ size, children }: { size: number; children: React.ReactNode
 
 export function CountdownClient() {
   return (
-    <div className="h-full flex flex-col items-center justify-center px-4 py-4 sm:py-8">
+    <div className="h-full flex flex-col items-center justify-center px-4 py-4 sm:py-8 vigil-drift">
       <Link
         href="/festival"
         className="flex flex-col items-center"

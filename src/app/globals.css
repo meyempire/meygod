@@ -38,6 +38,12 @@
   --font-mono: "Space Mono", monospace;
   --font-logo: "Chakra Petch", sans-serif;
   --font-god: "Ruthless Wreckin", sans-serif;
+  --font-blood-nosifer: var(--font-nosifer);
+  --font-blood-eater: var(--font-eater);
+  --font-blood-creepster: var(--font-creepster);
+  --font-blood-frijole: var(--font-frijole);
+  --font-blood-wetpaint: var(--font-wetpaint);
+  --font-blood: var(--font-blood-wetpaint);
   --radius: 4px;
   --glow: 0 0 20px rgba(255, 6, 6, 0.25);
 }
@@ -433,4 +439,17 @@ code[data-line-numbers] > [data-line]::before {
 code > [data-line] {
   padding: 0 1.25rem;
   border-left: 3px solid transparent;
+}
+
+/* Vigil pixel drift — slow orbit of the countdown content to avoid IPS image retention on the always-on wall display */
+@keyframes vigil-drift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(5px, -3px); }
+  50% { transform: translate(-3px, 4px); }
+  75% { transform: translate(4px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+.vigil-drift {
+  animation: vigil-drift 600s linear infinite;
 }

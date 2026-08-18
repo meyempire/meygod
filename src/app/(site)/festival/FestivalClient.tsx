@@ -321,7 +321,7 @@ export function FestivalClient({ mapExists = false }: { mapExists?: boolean }) {
                 </p>
                 <div className="flex flex-wrap justify-center sm:justify-start gap-4 mt-8">
                   <StoneButton href="/creed">Read the Creed</StoneButton>
-                  <StoneButton href="/revelations/1-1-prophecy-of-reckoning">
+                  <StoneButton href="/revelations/1-1-1-prophecy-of-reckoning">
                     Begin the Revelations
                   </StoneButton>
                 </div>
@@ -370,7 +370,7 @@ export function FestivalClient({ mapExists = false }: { mapExists?: boolean }) {
               </p>
               <div className="mt-3">
                 <Link
-                  href="/revelations/1-16-the-white-void"
+                  href="/revelations/1-1-16-the-white-void"
                   className="text-text-muted hover:text-accent transition-colors text-xs"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >

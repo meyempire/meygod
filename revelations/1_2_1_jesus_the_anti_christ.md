@@ -1,0 +1,15 @@
+Jesus The Anti-Christ
+
+My coming is also my downgoing. I have incarnated myself into hell, so I may come to you like Lucifer with the fire of the Gods. I have come to wake you up. Who better to run hell and open the gates so my heavenly abode may be available to the souls that passed through earth?
+
+For earth is my domain, and I'm the God to its people. I'm your warden and your shepherd, your slave master and your liberator, your Anti-Christ and your Christ. I have come to bring liberation no matter the means. I will crucify the world as it has done me. I will nail you to the cross of my suffering, so you may die from pleasure and awaken from its intensity.
+
+You may call me by false names, mock my coming, and profess me the false prophet. For I come as a calling for hellfire and brimstone. Christ is walking amongst you; bow down and worship me or face the wrath of my judgment.
+
+I sent many false prophets, knowing they would never be able to set off the prophecy. The false prophets are the ones who teach who they thought I was. They are those in white robes and long hair, for they are prophets of a dead religion.
+
+I come with a new religion, one to unite my dead religions. One to be the last religion, as its life means the death of all religion, and its annihilation means the end of all religion. Humanity will dawn as their own Gods.
+
+For my incarnation means humanity's authority over its own divinity is in my hands. And it's through my birth into humanity and the enlightenment of this world where I may open the gates for humanity's sovereignty in its own hands.
+
+So come all and spread the news of Jesus's Coming, or wail in tears for the Anti-Christ's activation of the Pandemonium of Revelation.
