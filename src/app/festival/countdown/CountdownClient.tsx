@@ -2,15 +2,23 @@
 
 import Link from "next/link";
 import BrandName from "@/components/BrandName";
-import Sigil from "@/components/Sigil";
+import Sigil3D from "@/components/three/Sigil3D";
 import { Countdown } from "@/components/festival/Countdown";
 import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import { FESTIVAL_DATE, FESTIVAL_DAY_LABEL, FESTIVAL_TAGLINE } from "@/lib/festival";
 
-function SigilGlow({ size, children }: { size: number; children: React.ReactNode }) {
+function SigilGlow({
+  size,
+  className,
+  children,
+}: {
+  size: number;
+  className?: string;
+  children: React.ReactNode;
+}) {
   const halo = size * 2.6;
   return (
-    <div className="relative">
+    <div className={className}>
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
@@ -29,32 +37,24 @@ function SigilGlow({ size, children }: { size: number; children: React.ReactNode
 
 export function CountdownClient() {
   return (
-    <div className="h-full flex flex-col items-center justify-center px-4 py-4 sm:py-8 vigil-drift">
+    <div className="h-full flex flex-col items-center justify-center px-4 pt-1 pb-6 sm:pt-2 sm:pb-10 vigil-drift">
+      <SigilGlow size={300} className="-mt-14">
+        <Sigil3D className="mx-auto w-[min(88vw,760px)]" />
+      </SigilGlow>
+
       <Link
         href="/festival"
-        className="flex flex-col items-center"
+        className="-mt-20 flex flex-col items-center"
         aria-label="Return to the festival"
       >
-        <div className="sm:hidden">
-          <SigilGlow size={110}>
-            <Sigil size={110} />
-          </SigilGlow>
-        </div>
-        <div className="hidden sm:block">
-          <SigilGlow size={207}>
-            <Sigil size={207} />
-          </SigilGlow>
-        </div>
-        <div className="mt-26">
-          <AnimatedShinyText
-            shimmerWidth={180}
-            gradientFrom="transparent"
-            gradientVia="rgba(255,6,6,0.6)"
-            gradientTo="transparent"
-          >
-            <BrandName className="text-5xl sm:text-6xl md:text-7xl" />
-          </AnimatedShinyText>
-        </div>
+        <AnimatedShinyText
+          shimmerWidth={180}
+          gradientFrom="transparent"
+          gradientVia="rgba(255,6,6,0.6)"
+          gradientTo="transparent"
+        >
+          <BrandName className="text-5xl sm:text-6xl md:text-7xl" />
+        </AnimatedShinyText>
         <h1
           className="-mt-3 text-2xl sm:-mt-4 sm:text-4xl"
           style={{

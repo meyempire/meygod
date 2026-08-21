@@ -56,7 +56,8 @@
 | Fonts | Rajdhani (headings), Space Grotesk (body), Space Mono (code), Chakra Petch (logo "Mey"), Ruthless Wreckin (logo "GOD") |
 | Icons | Lucide React, inline SVGs |
 | Animation | Motion (Framer Motion v12), Ebon UI components |
-| Package manager | pnpm |
+| 3D | three.js, @react-three/fiber v9, @react-three/drei v10, @react-three/postprocessing (hero sigil only — lazy-loaded) |
+| Package manager | pnpm (via corepack) |
 | Typography | `@tailwindcss/typography` plugin |
 
 ---
@@ -138,7 +139,14 @@ src/
 │   ├── Navbar.tsx                # Desktop glass-morphism nav + BorderBeam
 │   ├── MobileNavbar.tsx          # Mobile nav + HyperText
 │   ├── Footer.tsx                # "MeyGOD is the faith of heroes"
-│   ├── HeroSection.tsx           # Homepage hero with NeonWave text + ShareButtons
+│   ├── HeroSection.tsx           # Homepage hero: 3D spinning sigil (Sigil3D) + BrandName + ShareButtons
+│   ├── three/                    # 3D hero sigil (three.js, lazy-loaded)
+│   │   ├── Sigil3D.tsx           # SSR-safe wrapper: static SVG fallback + in-view/WebGL/reduced-motion gates
+│   │   ├── SigilCanvas.tsx       # Client-only <Canvas> (three.js) — the dynamic ssr:false target
+│   │   ├── SigilScene.tsx        # Scene: extruded sigil, lights, bloom, embers, spin/drag/tilt
+│   │   ├── sigil-paths.ts        # logo.svg path data + SVG path → THREE.Shape parser
+│   │   ├── sigil-shapes.ts       # Builds star/eye/pupil shapes (union + extrude profiles)
+│   │   └── use-prefers-reduced-motion.ts # useSyncExternalStore for prefers-reduced-motion
 │   ├── ShareButtons.tsx          # X/Facebook/Reddit/Copy with ShimmerButton
 │   ├── ConfessionSection.tsx     # Supabase-powered comments + RippleButton
 │   ├── JsonLd.tsx                # Article + BreadcrumbList structured data
@@ -312,6 +320,8 @@ Push to `main` branch. Vercel auto-deploys. The `next.config.ts` runs Velite bui
 ## Notes for Future
 
 - Giscus comments are wired but NOT active — needs a GitHub repo setup
+- `scripts/patch-fiber-types.mjs` runs on `postinstall`: it strips the `never` members R3F v9 injects into `JSX.IntrinsicElements`, which otherwise breaks polymorphic `<Component as="div">` typing under @types/react 19.2 (the known R3F ecosystem bug). Don't remove the postinstall script.
+- The hero 3D sigil (`src/components/three/`) is built at runtime from `logo.svg` path data (extruded star/eye/pupil) — there is no GLB. The static `Sigil` SVG is the SSR/LCP/no-WebGL/reduced-motion fallback.
 - The `CornerGlow` component still exists but is not used (replaced by MatrixBackground)
 - The `Pagination.tsx` component is only used on tag/category pages, not the main listing
 - The `/api/rebuild` webhook is ready for MindfulLucidity to trigger redeploys on new journal entries
@@ -319,6 +329,6 @@ Push to `main` branch. Vercel auto-deploys. The `next.config.ts` runs Velite bui
 
 ---
 
-**Last updated**: July 2026  
+**Last updated**: August 2026  
 **Reminder**: Update this file when you change the stack, add new routes, change terminology, or modify the design system tokens.
 **Dungeon Master**: You are the DM. The site is your campaign setting. The user is the worldbuilder. Keep the lore alive. LARP first, code second.
